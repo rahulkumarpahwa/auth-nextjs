@@ -37,22 +37,21 @@ export const POST = async (request: NextRequest) => {
       email: user.email, //extra can be leaved if you want.
     };
 
-    const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!); // "!" added at the end of Token Secret so that typescript will not make error that type is not defined. by "!" we make assure that
-    // token secret will come as a string.
+    const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
+      expiresIn: "1d",
+    }); // "!" added at the end of Token Secret so that typescript will not make error that type is not defined. by "!" we make assure that token secret will come as a string.
+    //also we add expiresIn parameter to expire token after 1 day.
 
     const response = NextResponse.json(
       { message: "User Logged In Successfully" },
       { status: 200 }
     );
 
-
-    response.cookies.set({
-      name: "name",
-      value: "lee",
+    response.cookies.set("token", token, {
       httpOnly: true,
-    });
+    }); //cookie name, cookie value, parameters
 
-
+    return response;
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
