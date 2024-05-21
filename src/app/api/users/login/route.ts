@@ -2,6 +2,7 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 connect();
 
@@ -28,9 +29,28 @@ export const POST = async (request: NextRequest) => {
       );
     }
 
-    
+    //jwt Token
+
+    const tokenData = {
+      id: user._id,
+      username: user.username,
+      email: user.email, //extra can be leaved if you want.
+    };
+
+    const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!); // "!" added at the end of Token Secret so that typescript will not make error that type is not defined. by "!" we make assure that
+    // token secret will come as a string.
+
+    const response = NextResponse.json(
+      { message: "User Logged In Successfully" },
+      { status: 200 }
+    );
 
 
+    response.cookies.set({
+      name: "name",
+      value: "lee",
+      httpOnly: true,
+    });
 
 
   } catch (error: any) {
