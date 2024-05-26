@@ -31,3 +31,17 @@ body {
     text-wrap: balance;
   }
 }
+
+
+html,
+body {
+/* Hide both horizontal and vertical scrollbars /
+/* WebKit (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Firefox */
+scrollbar-width: none;
+  -ms-overflow-style: none;
+}

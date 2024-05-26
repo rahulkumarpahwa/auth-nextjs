@@ -1,7 +1,13 @@
 "use client";
+import { useState } from "react";
 
-const Login = () => {
-  return <div>Login Page</div>;
+const Signup = () => {
+  const [user, setUser] = useState({
+    username : "",
+    password : "",
+    email: "",
+  });
+  return <div>SignUp Page</div>;
 };
 
-export default Login;
+export default Signup;
