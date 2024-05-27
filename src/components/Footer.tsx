@@ -92,7 +92,7 @@ const Footer = () => {
           <h2 className="text-white text-lg font-semibold mb-4">Contact Us</h2>
           <p>New Delhi, India</p>
           <p>Delhi 10001</p>
-          <p>Email: info@nextauthapp.com</p>
+          <p>Email: info@authapp.com</p>
           <p>Phone: (123) 456-7890</p>
         </div>
       </div>
