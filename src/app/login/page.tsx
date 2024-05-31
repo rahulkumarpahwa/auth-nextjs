@@ -51,6 +51,7 @@ const Login = () => {
           width={1000}
           height={1000}
           priority
+          unoptimized
         />
       </div>
       <div className="flex flex-col items-center justify-center h-[25rem] py-2">

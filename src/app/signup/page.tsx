@@ -52,6 +52,7 @@ const Signup = () => {
           width={1000}
           height={1000}
           priority
+          unoptimized
         />
       </div>
       <div className="flex flex-col items-center justify-center h-[30rem] py-2">
