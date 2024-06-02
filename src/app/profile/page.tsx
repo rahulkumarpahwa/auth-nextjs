@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";  
-import { toast } from "react-hot-toast";
+import Link from "next/link";
+import { Toaster, toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -53,15 +53,15 @@ const Profile = () => {
         <h2>User Details </h2>
         {data != undefined && (
           <div className="flex flex-col gap-3 ">
-            <div className="border border-gray-400 rounded-lg p-1 hover:text-black hover:bg-white">
+            <div className="bg-blue-500 rounded-lg p-1 hover:text-black hover:bg-white">
               Id : <Link href={`/profile/${data._id}`}>{data._id}</Link>
             </div>
             ( click to go here!! )
-            <div className="border border-gray-400 rounded-lg p-1">
+            <div className="bg-blue-500 rounded-lg p-1">
               Username : {data.username}
             </div>
             <div
-              className="border border-gray-400 rounded-lg p-1"
+              className="bg-blue-500 rounded-lg p-1"
               onMouseOver={() => {
                 setHide(true);
               }}
@@ -81,6 +81,7 @@ const Profile = () => {
           Logout
         </button>
       </div>
+      <Toaster />
     </div>
   );
 };
